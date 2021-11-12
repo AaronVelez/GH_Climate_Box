@@ -1,10 +1,10 @@
 /*
  Name:		Gh_Climate_Box_v3.0.ino
  Created:	5/29/2020 12:14:01 PM
- Author:	Aarón I. Vélez Ramírez
- Universidad Nacional Autónoma de México
+ Author:	Daniela Cornejo Corona and AarÃ³n I. VÃ©lez RamÃ­rez
+ Universidad Nacional AutÃ³noma de MÃ©xico
 
- Code for ENES León Greenhouse Climate Boxes
+ Code for ENES LeÃ³n Greenhouse Climate Boxes
 
  Details:
  
@@ -64,7 +64,7 @@ AD7193 AD7193;
 #include <Adafruit_MonoOLED.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_EPD.h>
-// See display selecto¿ion code in after display pins definitions in pin secction
+// See display selectoÂ¿ion code in after display pins definitions in pin secction
 
 
 ////// Fan speed PID control
