@@ -271,13 +271,21 @@ void setup() {
 //////////////////////////////////////////////////////////////////////////
 void loop() {
 
-	////// If valid time mesage is available, updtae RTC time
+	
+	////// 0 if debug
+	
+	
+	
+	////// 1 If valid time mesage is available, updtae RTC time
 	if (Serial.available()) {
 		processSyncMessage();
 	}
+	
+	
+	/////// 2 LoRa engine
 
 
-	////// Update and Read Date and Time from RTC
+	////// 3 Update and Read Date and Time from RTC
 	DateTime now = rtc.now();
 	s = int(now.second());
 	m = int(now.minute());
@@ -287,7 +295,7 @@ void loop() {
 	yr = int(now.year());
 
 
-	////// Status LED Blink
+	////// 4 Status LED Blink
 	LEDtime = millis();
 	if (LEDtime - lastBlink >= BlinkTime) {
 		if (LEDstate == LOW) {
@@ -347,7 +355,7 @@ void loop() {
 	}
 	
 	
-	////// PID fan speed control
+	////// 5 PID fan speed control
 	sum = 0;
 	for (int i = 0; i < n; i++) {
 		sum += analogRead(FanI_PIN) * VRef / 4095 * 1000;
@@ -357,7 +365,7 @@ void loop() {
 	analogWrite(A0, (PID_Output * 1023) / VRef);
 	
 
-	////// Test if it is time to Read sensors and Sum for later average
+	////// 6 Test if it is time to Read sensors and Sum for later average
 	if (m != LastSum) {
 		
 		////// Read Temp and RH
@@ -383,7 +391,7 @@ void loop() {
 	}
 	
 
-	////// Test if it is time to Update e-ink display and Log to SD card
+	////// 7 Test if it is time to Update e-ink display
 	if (((m % 5) == 0) && (m != LastLog)) {
 
 
@@ -485,5 +493,14 @@ void loop() {
 		SumNum = 0;
 		LogRdy = 1;
 	}
+	
+	////// 8 Log to SD card (already in state 7)
+	
+	
+	////// 9 Test if there is data available to be sent to IoT cloud
+	
+	////// 10 Test if there is LoRa conection and a Payload to sent SD data to IoT
+	
+	////// 11 Test environmental limits
 
 }
