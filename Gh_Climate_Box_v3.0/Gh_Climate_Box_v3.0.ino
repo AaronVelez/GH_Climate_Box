@@ -106,12 +106,14 @@ int FanI_PIN = A3;
 ////////////////////
 
 ////// Station IDs & Constants
-int StaNum = 1;
-String StaType = String("Gh Climate Box");
-String StaName = String("Gh Climate Box Compartment 2");
-String Firmware = String("Gh_Climate_Box_v3.0.ino");
-float VRef = 3.276;
-// Xbee ID, etc 
+const int StaNum = 4;
+String StaType = F("Gh Climate Box");
+String StaName = F("Gh Climate Box Compartment 2");
+String Firmware = F("Gh_Climate_Box_v3.0.ino");
+//const float VRef = 3.3;
+float CO2cal = 1.25;   // Calibrated coeficient to transform voltage to ppm.
+float SD_CO2Cal = 0;
+bool debug = false;
 
 
 ////// Log File & Headers
