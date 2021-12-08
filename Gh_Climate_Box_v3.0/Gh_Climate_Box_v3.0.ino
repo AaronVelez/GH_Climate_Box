@@ -38,11 +38,18 @@ RTC_DS3231 rtc;
 char daysOfTheWeek[7][12] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
 
-////// RTC sync over serial
+////// RTC sync over serial Time libraries 
+#include <RTClib.h>
+RTC_DS3231 rtc;
 #include <TimeLib.h>
-#define TIME_HEADER  "T"   // Header tag for serial time sync message
-#define TIME_REQUEST  7    // ASCII bell character requests a time sync message
-
+#include <NTPClient.h>
+NTPClient timeClient(ntpUDP, "north-america.pool.ntp.org", 0, 300000); // For details, see https://github.com/arduino-libraries/NTPClient
+// Time zone library
+#include <Timezone.h>
+//  Central Time Zone (Mexico City)
+TimeChangeRule mxCDT = { "CDT", First, Sun, Apr, 2, -300 };
+TimeChangeRule mxCST = { "CST", Last, Sun, Oct, 2, -360 };
+T
 
 ////// ADC AD7193
 #include <AD7193_CS11.h> // Based on original AD7193.h library by Anne Mahaffey with pin 11 as CS
