@@ -148,12 +148,23 @@ PID fanPID(&PID_Input, &PID_Output, &PID_Setpoint, Kp, Ki, Kd, DIRECT);
 
 
 ////// Time variables
-int s = -1; //Seconds
-int m = -1; //Minutes
-int h = -1; //Hours
-int dy = -1; //Day
-int mo = -1; //Month
-int yr = -1; //Year
+DateTime RTCnow;    // UTC Date-Time class from RTC
+time_t LastNTP;     // Last UTP time that the RTC was updated form NTP
+time_t UTC_t;       // UTC UNIX time stamp
+time_t local_t;     // Local time with DST adjust in UNIX time stamp format
+time_t SD_local_t;  // Recorded UNIX time stamp
+int s = -1;		    // Seconds
+int m = -1;		    // Minutes
+int h = -1;		    // Hours
+int dy = -1;	    // Day
+int mo = -1;	    // Month
+int yr = -1;	    // Year
+// Time for IoT payload
+int mIoT = -1;
+int hIoT = -1;
+int dyIoT = -1;
+int moIoT = -1;
+int yrIoT = -1;
 
 
 ////// State machine Shift Registers
