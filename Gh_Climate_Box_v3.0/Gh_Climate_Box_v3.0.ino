@@ -56,8 +56,31 @@ T
 AD7193 AD7193;
 
 
-////// SD
-#include <SD.h>
+////// SD fat library used in order to use exFAT file system
+////// Adapted to M5 stack acording to https://github.com/ArminPP/sdFAT-M5Stack
+#include <SdFat.h>
+#define SPI_SPEED SD_SCK_MHZ(25)
+#define SD_CONFIG SdSpiConfig(TFCARD_CS_PIN, SHARED_SPI, SPI_SPEED) // TFCARD_CS_PIN is defined in M5Stack Config.h (Pin 4)
+/// <summary>
+/// IMPORTANT
+/// in file SdFat\src\SdFatConfig.h at Line 100 set to cero for NON dedicated SPI:
+/// #define ENABLE_DEDICATED_SPI 0
+/// </summary>
+
+SdExFat sd;
+ExFile LogFile;
+ExFile root;
+
+/*
+SdFat32 sd;
+File32 LogFile;
+File32 root;
+*/
+
+char line[305];
+String str = "";
+unsigned int position = 0;
+
 
 
 ////// e-ink Display (EPD)
