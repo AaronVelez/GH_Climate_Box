@@ -229,6 +229,18 @@ unsigned long chTempData;
 bool ADC_Status_Ch8;
 
 
+////// LoRa conection to TTN
+// LoRaWAN region to use
+
+#define LORAWAN_REGION          LORAMAC_REGION_US915
+// LoRaWAN Device EUI (64-bit), NULL value will use Default Dev EUI
+#define LORAWAN_DEVICE_EUI      "0000000000000000" //This must be replace with the actual values
+// LoRaWAN Application / Join EUI (64-bit)
+#define LORAWAN_APP_EUI         "0000000000000000" //This must be replace with the actual values
+// LoRaWAN Application Key (128-bit)
+#define LORAWAN_APP_KEY         "00000000000000000000000000000000" //This must be replace with the actual values
+// TTN specific channel mask, only needed for US915 region
+#define LORAWAN_CHANNEL_MASK "FF0000000000000000020000"
 
 
 
