@@ -229,7 +229,7 @@ unsigned long chTempData;
 bool ADC_Status_Ch8;
 
 
-////// LoRa conection to TTN
+////// Config LoRa and TTN conection
 // LoRaWAN region to use
 
 #define LORAWAN_REGION          LORAMAC_REGION_US915
